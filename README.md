@@ -5,7 +5,6 @@ LogFlow is a logging library crafted for data engineers, facilitating tracking a
 
 ## Key Features
 
-
 **@Logflow Decorator** : At the core of LogFlow, this decorator automates detailed logging with rich contextual information, including project, flow, task identifiers, and custom metadata. It's tailored to capture every critical aspect of data processing activities, offering unparalleled clarity into your data engineering projects.
 
 - **Project, Flow, and Task Context** : Tailor your logging to reflect the hierarchical structure of data pipelines. Log entries are enriched with identifiers for the project, flow, and task, providing clarity on the log's origin and making it easier to filter and analyze logs.
