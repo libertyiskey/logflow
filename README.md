@@ -1,7 +1,7 @@
 
-# [logo for lofglow](logflow_logo.png) Logflow Package
+# Logflow Package
 
-LogFlow is a logging library crafted for data engineers, facilitating tracking and organization of logs within data pipelines. Central to LogFlow's functionality is its decorator, @log_function_data, which allows for seamless, detailed logging across various components of data engineering projects.
+LogFlow is a logging library crafted for data engineers, facilitating tracking and organization of logs within data pipelines. Central to LogFlow's functionality is its decorator, @logflow, which allows for seamless, detailed logging across various components of data engineering projects.
 
 ## Key Features
 
@@ -24,7 +24,7 @@ pip install LogFlow
 
 ### Quick Setup
 
-1. **Logging Decorator**: Integrate logging into functions with `@log_function_data`, specifying the level, project ID, flow ID, task ID, and any custom metadata.
+1. **Logging Decorator**: Integrate logging into functions with `@logflow`, specifying the level, project ID, flow ID, task ID, and any custom metadata.
 
 2. **CLI Commands**: The LogFlow CLI tool offers several commands for interacting with your logs:
     - `tail`: Display the last `n` log entries.
@@ -40,7 +40,7 @@ pip install LogFlow
 ```python
 from LogFlow.log_decorator import log_function_data
 
-@log_function_data(level="INFO", project_id="Project123", flow_id="DataProcessing", task_id="TaskA", custom_metadata={"user": "admin"})
+@logflow(level="INFO", project_id="Project123", flow_id="DataProcessing", task_id="TaskA", custom_metadata={"user": "admin"})
 def process_data(data):
     # Function implementation
     pass

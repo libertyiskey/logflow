@@ -1,30 +1,32 @@
-from setuptools import setup, find_packages
+import setuptools
 
-setup(
-    name='logflow',
-    version='0.1.0',
-    packages=find_packages(),
-    description='A logging tool for data engineers',
-    long_description=open('README.md').read(),
-    long_description_content_type='text/markdown',
-    author='Your Name',
-    author_email='your.email@example.com',
-    license='MIT',
-    install_requires=[
-        # List your project dependencies here.
-        # For example: 'requests', 'argparse', etc.
-    ],
-    entry_points={
-        'console_scripts': [
-            'logflow=logflow.cli:main',  # Enables the `logflow` command.
-        ],
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
+
+setuptools.setup(
+    name="Logflow",  # Replace with your own username
+    version="0.0.1",
+    author="libertyiskey",
+    author_email="your.email@example.com",
+    description="A logging utility for data engineers",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="https://github.com/libertyiskey/logflow",
+    project_urls={
+        "Bug Tracker": "https://github.com/libertyiskey/logflow/issues",
     },
     classifiers=[
-        # Trove classifiers
-        # Full list: https://pypi.org/classifiers/
-        'Programming Language :: Python :: 3',
-        'License :: OSI Approved :: MIT License',
-        'Operating System :: OS Independent',
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
     ],
-    python_requires='>=3.6',
+    package_dir={"": "logflow"},
+    packages=setuptools.find_packages(where="logflow"),
+    python_requires=">=3.6",
+    install_requires=[],  # Add any dependencies your package needs
+    entry_points={
+        'console_scripts': [
+            'logflow=logflow.cli:main',
+        ],
+    },
 )
