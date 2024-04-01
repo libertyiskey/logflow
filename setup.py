@@ -1,10 +1,13 @@
 import setuptools
+import os
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
+    
+version = os.getenv('VERSION', '0.0.1')
 
 setuptools.setup(
-    name="Logflow",  # Replace with your own username
+    name="logflow",  # Replace with your own username
     version="0.0.1",
     author="libertyiskey",
     author_email="your.email@example.com",
