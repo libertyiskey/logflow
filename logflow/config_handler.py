@@ -1,7 +1,6 @@
 import json
 import os
 
-# Choose config file based on an environment variable
 CONFIG_FILE_NAME = ".logflowconfig_test.json" if os.getenv("LOGFLOW_TEST") else ".logflowconfig.json"
 CONFIG_FILE_PATH = os.path.join(os.path.expanduser("~"), CONFIG_FILE_NAME)
 
@@ -29,7 +28,6 @@ def set_log_file_path(path):
 def ensure_log_directory_exists(log_file_path):
     log_dir = os.path.dirname(log_file_path)
     if not os.path.exists(log_dir):
-        print(f"Log directory {log_dir} does not exist, creating it.")
         os.makedirs(log_dir, exist_ok=True)
 
 

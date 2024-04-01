@@ -18,7 +18,7 @@ def execution_logger():
     try:
         yield execution_context.execution_id
     finally:
-        pass  # In this case, we're not removing the execution_id to persist it across the function call
+        pass 
 
 def ensure_directory_exists(path):
     if not os.path.exists(os.path.dirname(path)):

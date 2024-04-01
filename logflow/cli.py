@@ -130,31 +130,24 @@ def main():
                                      formatter_class=argparse.RawTextHelpFormatter)
     subparsers = parser.add_subparsers(dest='command', help='Available commands:\n')
 
-    # Tail command
     tail_parser = subparsers.add_parser('tail', help='Display the last n log entries.\nUsage: tail -n [number]\n')
     tail_parser.add_argument('-n', type=int, default=10, help='Number of log entries to display.')
     tail_parser.set_defaults(func=tail_logs)
 
-    # Stream command
     stream_parser = subparsers.add_parser('stream', help='Stream logs in real-time.\nUsage: stream\n')
     stream_parser.set_defaults(func=stream_logs)
 
-    # Search command
     search_parser = subparsers.add_parser('search', help='Search logs for a query.\nUsage: search [query]\n')
     search_parser.add_argument('query', type=str, help='Query string to search for in logs.')
     search_parser.set_defaults(func=search_logs)
 
-
-     # New subparser for listing all log paths
     list_parser = subparsers.add_parser('list', help='List all registered log file paths')
     list_parser.set_defaults(func=list_log_paths)
 
-    # New subparser for selecting a specific log file path
     select_parser = subparsers.add_parser('select', help='Select a specific log file path')
     select_parser.add_argument('path', type=str, help='The log file path to use')
     select_parser.set_defaults(func=select_log_path)
     
-    # Enhanced search command
     search_parser = subparsers.add_parser('search', help='Search logs for a query with additional filters.\nUsage: search [query] --level [LEVEL] --start_time [START] --end_time [END]\n')
     search_parser.add_argument('query', type=str, help='Query string to search for in logs.')
     search_parser.add_argument('--level', type=str, help='Filter logs by level (e.g., INFO, ERROR).')
@@ -163,7 +156,6 @@ def main():
     search_parser.set_defaults(func=search_logs)
     
     summarize_parser = subparsers.add_parser('summarize', help='Summarize recent pipeline executions')
-    # In the main function, when adding the -last argument, ensure the default is properly set
     summarize_parser.add_argument('-last', type=int, default=3, help='Number of last executions to summarize (default: 3)')
     summarize_parser.set_defaults(func=summarize_executions)
     
