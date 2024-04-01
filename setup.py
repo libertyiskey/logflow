@@ -20,10 +20,10 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    package_dir={"": "logflow"},
-    packages=setuptools.find_packages(where="logflow"),
+    package_dir={"": "src"},  
+    packages=setuptools.find_packages(where="src"),,
     python_requires=">=3.6",
-    install_requires=[],  # Add any dependencies your package needs
+    install_requires=[], 
     entry_points={
         'console_scripts': [
             'logflow=logflow.cli:main',
