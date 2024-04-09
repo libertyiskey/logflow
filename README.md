@@ -19,7 +19,7 @@ Tail and Stream Logs: Effortlessly monitor your logs in real-time or stream them
 Install LogFlow using pip:
 
 ```bash
-pip install LogFlow
+pip install logflow
 ```
 
 ### Quick Setup
@@ -38,7 +38,7 @@ pip install LogFlow
 ### Decorator in Python Code
 
 ```python
-from LogFlow.log_decorator import log_function_data
+from logflow.log_decorator import log_function_data
 
 @logflow(level="INFO", project_id="Project123", flow_id="DataProcessing", task_id="TaskA", custom_metadata={"user": "admin"})
 def process_data(data):
