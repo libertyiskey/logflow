@@ -137,10 +137,6 @@ def main():
     stream_parser = subparsers.add_parser('stream', help='Stream logs in real-time.\nUsage: stream\n')
     stream_parser.set_defaults(func=stream_logs)
 
-    search_parser = subparsers.add_parser('search', help='Search logs for a query.\nUsage: search [query]\n')
-    search_parser.add_argument('query', type=str, help='Query string to search for in logs.')
-    search_parser.set_defaults(func=search_logs)
-
     list_parser = subparsers.add_parser('list', help='List all registered log file paths')
     list_parser.set_defaults(func=list_log_paths)
 
