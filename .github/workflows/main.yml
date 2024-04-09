@@ -32,8 +32,17 @@ jobs:
       run: |
         python setup.py sdist bdist_wheel
 
+    - name: Check if version exists on TestPyPI
+      id: check_testpypi
+      run: |
+        if twine check dist/* && twine upload --repository-url https://test.pypi.org/legacy/ -u __token__ -p ${{ secrets.TEST_PYPI_API_TOKEN }} --skip-existing dist/*; then
+          echo "::set-output name=exists::true"
+        else
+          echo "::set-output name=exists::false"
+        fi
+
     - name: Publish distribution 📦 to Test PyPI
-      if: contains(github.ref, 'refs/tags/')
+      if: contains(github.ref, 'refs/tags/') && steps.check_testpypi.outputs.exists == 'false'
       uses: pypa/gh-action-pypi-publish@master
       with:
         password: ${{ secrets.TEST_PYPI_API_TOKEN }}
